@@ -1,0 +1,23 @@
+import fs from "fs";
+
+import { CINEMA_PORT, CINEMA_HOST } from './consts.mjs';
+
+var fileIndex = [];
+
+function buildFileIndex() {
+  fs.readdir("./movies", (err, files) => {
+    if (err) {
+      console.error("Error reading directory:", err);
+      return;
+    }
+    files.forEach((file) => {
+      let link = `http://${CINEMA_HOST}:${CINEMA_PORT}/movies/${file}`;
+      let newFileEntry = {name:file,
+        link:link,
+      };
+      fileIndex.push(newFileEntry);
+    });
+  });
+}
+
+export { buildFileIndex, fileIndex };
