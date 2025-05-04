@@ -1,9 +1,7 @@
 import express from 'express';
 import { CINEMA_PORT, CINEMA_HOST, CINEMA_URL } from './consts.mjs';
-import {buildFileIndex,fileIndex} from './file-index.mjs'
+import {buildFileIndex} from './file-index.mjs'
 import cors from 'cors';
-
-buildFileIndex();
 
 const app = express();
 
@@ -17,8 +15,7 @@ app.listen(CINEMA_PORT, CINEMA_HOST, () => {
 app.use('/movies',express.static('./movies'))
 
 app.get('/available', async (req, res) => {
-    await buildFileIndex();
-    console.log(fileIndex);
+    fileIndex = await buildFileIndex()
     res.json(fileIndex);
 })
 

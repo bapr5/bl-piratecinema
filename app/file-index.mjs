@@ -1,11 +1,7 @@
 import fs from "fs";
 
-import { CINEMA_PORT, CINEMA_HOST } from './consts.mjs';
-
-var fileIndex = [];
-
 async function buildFileIndex() {
-  fileIndex = [];
+  let fileIndex = [];
   fs.readdir("./movies", (err, files) => {
     if (err) {
       console.error("Error reading directory:", err);
@@ -19,6 +15,7 @@ async function buildFileIndex() {
       fileIndex.push(newFileEntry);
     });
   });
+  return fileIndex;
 }
 
-export { buildFileIndex, fileIndex };
+export { buildFileIndex };
