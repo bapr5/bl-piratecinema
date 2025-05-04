@@ -18,6 +18,7 @@ app.use('/movies',express.static('./movies'))
 
 app.get('/available', async (req, res) => {
     await buildFileIndex();
+    console.log(fileIndex);
     res.json(fileIndex);
 })
 
