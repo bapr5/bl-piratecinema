@@ -11,7 +11,7 @@ function buildFileIndex() {
       return;
     }
     files.forEach((file) => {
-      let link = encodeURI(`http://${CINEMA_HOST}:${CINEMA_PORT}/movies/${file}`);
+      let link = encodeURI(`/movies/${file}`);
       let newFileEntry = {name:file,
         link:link,
       };
