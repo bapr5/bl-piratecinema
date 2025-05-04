@@ -5,6 +5,7 @@ import { CINEMA_PORT, CINEMA_HOST } from './consts.mjs';
 var fileIndex = [];
 
 function buildFileIndex() {
+  fileIndex = [];
   fs.readdir("./movies", (err, files) => {
     if (err) {
       console.error("Error reading directory:", err);
