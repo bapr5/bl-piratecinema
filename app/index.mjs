@@ -17,6 +17,7 @@ app.listen(CINEMA_PORT, CINEMA_HOST, () => {
 app.use('/movies',express.static('./movies'))
 
 app.get('/available', (req, res) => {
+    buildFileIndex();
     res.json(fileIndex);
 })
 
